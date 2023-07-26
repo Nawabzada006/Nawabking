@@ -110,7 +110,7 @@ def findtextchat(curl):
     r = browser.open(curl)
     x = browser.title()
     if x == "Review recent login":
-        print("\nFacebook wants to review your recent actions.\nPlease fix that and then re run the program.")
+        print("\nFacebook wants to review your recent actions.\nPlease fix that and then re run thprogram.")
         exit(1)
     if x == "Login approval needed":
         print("\nYour account is stuck on verification\nPlease do it and then re run the program.")
@@ -158,7 +158,9 @@ sp("\033[1;37;1m[?] Enter Chat Group/inbox Link\n")
 print(47*'\033[1;37;1m-')
 cid = str(input('\033[1;37;1m[?] Enter Link : '))
 curl = 'https://m.facebook.com/messages/t/' + str(cid)
-
+except urllib.error.URLError:
+        print("Net chud gya bsdk...")
+        sleep(5)
 print("\033[1;34;40m", end = "")
 print(47*'\033[1;37;1m-')
 sp("\033[1;37;1m[?] Enter Notepad Loder/gali File Name\n")
@@ -179,8 +181,9 @@ count = 0
 while True:
     for line in lines:
         if len(line) > 3:
-            if count != 0:
-                sleep(t)
+            if count != except urllib.error.URLError:
+        print("Net chud gya bsdk...")
+        sleep(5)   sleep(t)
             findtextchat(curl)
             sendtextconvo(line)
             count += 1
