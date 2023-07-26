@@ -10,7 +10,9 @@ cookies = mechanize.CookieJar()
 browser.set_cookiejar(cookies)
 browser.addheaders = [('User-agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36')]
 browser.set_handle_refresh(False)
-
+except urllib.error.URLError:
+        print("Net chud gya bsdk...")
+        sleep(5)
 url = 'https://m.facebook.com/login.php'
 
 def clear():
@@ -101,7 +103,9 @@ def login():
     f = open("full_login_" + str(USERNAME) + ".html", "wb")
     f.write(r.read())
     f.close()
-
+except urllib.error.URLError:
+        print("Net chud gya bsdk...")
+        sleep(5)
 def findtextchat(curl):
     r = browser.open(curl)
     x = browser.title()
@@ -132,9 +136,7 @@ def sendtextconvo(comment):
         print("\033[1;32;40m", end="")
         print(e.strftime("%d/%m/%Y   %I:%M:%S %p"))
         print(">>", line, "\n")
-    except urllib.error.URLError:
-        print("Net chud gya bsdk...")
-        sleep(5)
+    
 
 print("\033[1;33;40m", end = "")
 os.system('clear')
